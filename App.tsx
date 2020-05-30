@@ -5,6 +5,8 @@ import BottomTabsNav from './navigation/BottomTabsNav';
 import { Ionicons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -29,10 +31,12 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Twoja pasieka' component={BottomTabsNav} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Twoja pasieka' component={BottomTabsNav} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
