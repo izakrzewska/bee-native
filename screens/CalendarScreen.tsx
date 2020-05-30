@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Container, Text } from 'native-base';
 
 const CalendarScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <Container
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+    >
       <Text>Calendar Screen</Text>
-    </View>
+    </Container>
   );
 };
 
