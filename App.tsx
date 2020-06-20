@@ -1,42 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import BottomTabsNav from './navigation/BottomTabsNav';
-import { Ionicons } from '@expo/vector-icons';
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
+import { BottomTabsNavigator } from './navigation/BottomTabsNavigator';
 import { Provider } from 'react-redux';
 import store from './store';
 
-const fetchFonts = () => {
-  return Font.loadAsync({
-    Roboto: require('native-base/Fonts/Roboto.ttf'),
-    Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-    ...Ionicons.font,
-  });
-};
+const App = () => (
+  <Provider store={store}>
+    <NavigationContainer>
+      <BottomTabsNavigator />
+    </NavigationContainer>
+  </Provider>
+);
 
-const Stack = createStackNavigator();
-
-export default function App() {
-  const [dataLoaded, setdataLoaded] = useState(false);
-
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setdataLoaded(true)}
-      />
-    );
-  }
-
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name='Twoja pasieka' component={BottomTabsNav} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  );
-}
+export default App;

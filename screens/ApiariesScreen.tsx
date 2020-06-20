@@ -1,34 +1,17 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Image } from 'react-native';
-import { Container, Content, Card, CardItem, Text } from 'native-base';
+import { Layout } from '../components';
 import { RootState } from '../store/types';
 
-const ApiariesScreen = () => {
-  const apiaries = useSelector((state: RootState) => state.apiaries.apiaries);
+export const ApiariesScreen = () => {
+  const apiaries = useSelector(
+    (state: RootState) => state.apiaries.apiariesList
+  );
 
   return (
-    <Container>
-      <Content style={{ margin: 20 }}>
-        {apiaries.map((apiary) => (
-          <Card key={apiary.id}>
-            <CardItem header>
-              <Text>{apiary.name}</Text>
-            </CardItem>
-            <CardItem cardBody>
-              <Image
-                source={require('../assets/apiary.jpg')}
-                style={{ height: 200 }}
-              />
-            </CardItem>
-            <CardItem footer>
-              <Text>{apiary.beehives.length} uli</Text>
-            </CardItem>
-          </Card>
-        ))}
-      </Content>
-    </Container>
+    <Layout>
+      <Text>Apiaries</Text>
+    </Layout>
   );
 };
-
-export default ApiariesScreen;

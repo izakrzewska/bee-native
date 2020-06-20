@@ -1,14 +1,9 @@
 import React from 'react';
-import { Container, Text } from 'native-base';
+import { Text } from 'react-native';
+import { Layout } from '../components';
 
-const WelcomeScreen = () => {
-  return (
-    <Container
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-    >
-      <Text>Home Screen</Text>
-    </Container>
-  );
-};
-
-export default WelcomeScreen;
+export const WelcomeScreen = () => (
+  <Layout>
+    <Text>WelcomeScreen</Text>
+  </Layout>
+);

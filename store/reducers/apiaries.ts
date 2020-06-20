@@ -1,7 +1,7 @@
 import { ApiaryState, ApiaryActionTypes, ADD_APIARY } from '../types';
 
 const initialState: ApiaryState = {
-  apiaries: [
+  apiariesList: [
     {
       id: 1,
       name: 'Borki Kosy',
@@ -92,7 +92,7 @@ const apiariesReducer = (
     case ADD_APIARY:
       return {
         ...state,
-        apiaries: [...state.apiaries, action.payload],
+        apiariesList: [...state.apiariesList, action.payload],
       };
     default:
       return state;

@@ -27,7 +27,7 @@ export interface Apiary {
 export type RootState = ReturnType<typeof rootReducer>;
 
 export interface ApiaryState {
-  apiaries: Apiary[];
+  apiariesList: Apiary[];
 }
 
 export const ADD_APIARY = 'ADD_APIARY';
