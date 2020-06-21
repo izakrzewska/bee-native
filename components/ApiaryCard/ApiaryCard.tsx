@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { colors } from '../../constants/colors';
+import { Text } from '../Text/Text';
 import { Apiary } from '../../store/types';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 interface ApiaryCardProps {
@@ -11,7 +12,7 @@ export const ApiaryCard: React.FC<ApiaryCardProps> = ({ apiary }) => {
   return (
     <TouchableOpacity activeOpacity={0.5}>
       <View style={styles.card}>
-        <Text style={styles.title}>
+        <Text fontFamily='bold' fontSize={20}>
           {apiary.name}, {apiary.beehives.length}
         </Text>
       </View>
@@ -35,9 +36,5 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
-  },
-  title: {
-    fontFamily: 'montserrat-semibold',
-    fontSize: 20,
   },
 });

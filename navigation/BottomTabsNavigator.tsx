@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { CalendarScreen, WelcomeScreen } from '../screens';
 import { colors } from '../constants/colors';
-import { ApiariesStack } from './ApiariesStack';
+import { ApiariesDrawer } from './ApiariesDrawer';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,8 +22,8 @@ export const BottomTabsNavigator = () => {
         options={{ tabBarIcon: () => <Ionicons name='ios-home' size={24} /> }}
       />
       <Tab.Screen
-        name='ApiariesStack'
-        component={ApiariesStack}
+        name='ApiariesDrawer'
+        component={ApiariesDrawer}
         options={{ tabBarIcon: () => <Ionicons name='ios-bug' size={24} /> }}
       />
       <Tab.Screen
