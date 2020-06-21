@@ -1,12 +1,19 @@
 import React from 'react';
-import { View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import { StatusBar } from '../StatusBar/StatusBar';
 
 export const Layout = ({ children }) => {
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={styles.layout}>
       <StatusBar />
       {children}
-    </View>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  layout: {
+    flex: 1,
+    marginTop: 20,
+  },
+});

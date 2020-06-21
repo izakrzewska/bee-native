@@ -1,8 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { ApiariesScreen, CalendarScreen, WelcomeScreen } from '../screens';
+import { CalendarScreen, WelcomeScreen } from '../screens';
 import { colors } from '../constants/colors';
+import { ApiariesStack } from './ApiariesStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,8 +22,8 @@ export const BottomTabsNavigator = () => {
         options={{ tabBarIcon: () => <Ionicons name='ios-home' size={24} /> }}
       />
       <Tab.Screen
-        name='ApiariesScreen'
-        component={ApiariesScreen}
+        name='ApiariesStack'
+        component={ApiariesStack}
         options={{ tabBarIcon: () => <Ionicons name='ios-bug' size={24} /> }}
       />
       <Tab.Screen
