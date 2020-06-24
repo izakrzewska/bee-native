@@ -1,18 +1,18 @@
 import React from 'react';
 import { MenuIcon } from '../components';
-import { ApiariesScreen } from '../screens';
+import { NewApiaryScreen } from '../screens';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-export const ApiariesStack = ({ navigation }) => {
+export const NewApiaryStack = ({ navigation }) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='ApiariesScreen'
-        component={ApiariesScreen}
+        name='NewApiary'
+        component={NewApiaryScreen}
         options={{
-          title: 'Pasieki',
+          title: 'Nowa pasieka',
           headerLeft: () => <MenuIcon navigation={navigation} />,
         }}
       />
