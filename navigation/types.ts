@@ -98,7 +98,7 @@ type NewApiaryScreenRouteProp = RouteProp<
   NewApiaryStackParamsList,
   'NewApiary'
 >;
-type NewApiaryScreenNavigationProp = CompositeNavigationProp<
+export type NewApiaryScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<NewApiaryStackParamsList, 'NewApiary'>,
   CompositeNavigationProp<
     DrawerNavigationProp<ApiariesDrawerParamsList>,
