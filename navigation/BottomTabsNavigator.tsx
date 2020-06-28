@@ -4,8 +4,9 @@ import React from 'react';
 import { CalendarScreen, WelcomeScreen } from '../screens';
 import { colors } from '../constants/colors';
 import { ApiariesDrawer } from './ApiariesDrawer';
+import { BottomTabParamsList } from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabParamsList>();
 
 export const BottomTabsNavigator = () => {
   return (

@@ -2,10 +2,13 @@ import React from 'react';
 import { MenuIcon } from '../components';
 import { NewApiaryScreen } from '../screens';
 import { createStackNavigator } from '@react-navigation/stack';
+import { NewApiaryStackParamsList, NewApiaryStackProps } from './types';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<NewApiaryStackParamsList>();
 
-export const NewApiaryStack = ({ navigation }) => {
+export const NewApiaryStack: React.FC<NewApiaryStackProps> = ({
+  navigation,
+}) => {
   return (
     <Stack.Navigator>
       <Stack.Screen

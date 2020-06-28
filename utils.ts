@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
-export const formData = (values) => {
+export const formData = (values: any) => {
   const [formValues, setFormValues] = useState({
     ...values,
   });
 
-  const handleFormValueChange = (key, value) => {
+  const handleFormValueChange = (key: string, value: string) => {
     setFormValues({
       ...formValues,
       [key]: value,

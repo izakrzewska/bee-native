@@ -5,10 +5,13 @@ import { Input, Text } from '../components';
 import { formData } from '../utils';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import { addApiary } from '../store/actions/apiaries';
+import { NewApiaryScreenProps } from '../navigation/types';
 
-export const NewApiaryScreen = ({ navigation }) => {
+export const NewApiaryScreen: React.FC<NewApiaryScreenProps> = ({
+  navigation,
+}) => {
   const dispatch = useDispatch();
-  const [formValues, handleFormValueChange] = formData({
+  const [formValues, handleFormValueChange, setFormValues] = formData({
     name: '',
   });
 
@@ -44,7 +47,7 @@ export const NewApiaryScreen = ({ navigation }) => {
     };
 
     dispatch(addApiary(newApiary));
-    navigation.navigate('ApiariesStack');
+    navigation.jumpTo('ApiariesStack');
   };
 
   return (

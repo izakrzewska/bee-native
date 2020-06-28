@@ -2,14 +2,15 @@ import React from 'react';
 import { MenuIcon } from '../components';
 import { ApiariesScreen } from '../screens';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ApiariesStackParamsList, ApiariesStackProps } from './types';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<ApiariesStackParamsList>();
 
-export const ApiariesStack = ({ navigation }) => {
+export const ApiariesStack: React.FC<ApiariesStackProps> = ({ navigation }) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='ApiariesScreen'
+        name='Apiaries'
         component={ApiariesScreen}
         options={{
           title: 'Pasieki',

@@ -3,8 +3,9 @@ import { View, StyleSheet } from 'react-native';
 import { Layout, Text } from '../components';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/types';
+import { WelcomeScreenProps } from '../navigation/types';
 
-export const WelcomeScreen = () => {
+export const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
   const apiaries = useSelector(
     (state: RootState) => state.apiaries.apiariesList
   );

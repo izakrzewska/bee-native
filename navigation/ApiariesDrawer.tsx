@@ -2,8 +2,9 @@ import React from 'react';
 import { ApiariesStack } from './ApiariesStack';
 import { NewApiaryStack } from './NewApiaryStack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { ApiariesDrawerParamsList } from './types';
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<ApiariesDrawerParamsList>();
 
 export const ApiariesDrawer = () => {
   return (

@@ -3,8 +3,9 @@ import { FlatList, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Layout, ApiaryCard } from '../components';
 import { RootState } from '../store/types';
+import { ApiariesScreenProps } from '../navigation/types';
 
-export const ApiariesScreen = () => {
+export const ApiariesScreen: React.FC<ApiariesScreenProps> = () => {
   const apiaries = useSelector(
     (state: RootState) => state.apiaries.apiariesList
   );

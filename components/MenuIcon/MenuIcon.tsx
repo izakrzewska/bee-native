@@ -2,8 +2,16 @@ import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  ApiariesStackNavigationProp,
+  NewApiaryStackNavigationProp,
+} from '../../navigation/types';
 
-export const MenuIcon = ({ navigation }) => {
+interface MenuIconProps {
+  navigation: ApiariesStackNavigationProp | NewApiaryStackNavigationProp;
+}
+
+export const MenuIcon: React.FC<MenuIconProps> = ({ navigation }) => {
   return (
     <TouchableOpacity
       style={styles.container}
