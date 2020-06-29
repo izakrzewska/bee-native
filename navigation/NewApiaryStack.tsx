@@ -16,7 +16,7 @@ export const NewApiaryStack: React.FC<NewApiaryStackProps> = ({
         component={NewApiaryScreen}
         options={{
           title: 'Nowa pasieka',
-          headerLeft: () => <MenuIcon navigation={navigation} />,
+          headerLeft: () => <MenuIcon />,
         }}
       />
     </Stack.Navigator>

@@ -14,7 +14,7 @@ export const ApiariesStack: React.FC<ApiariesStackProps> = ({ navigation }) => {
         component={ApiariesScreen}
         options={{
           title: 'Pasieki',
-          headerLeft: () => <MenuIcon navigation={navigation} />,
+          headerLeft: () => <MenuIcon />,
         }}
       />
     </Stack.Navigator>

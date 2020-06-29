@@ -6,17 +6,17 @@ import { useDispatch } from 'react-redux';
 import { NewApiaryScreenNavigationProp } from '../../navigation/types';
 import { addApiary } from '../../store/actions/apiaries';
 import { Text } from '../Text/Text';
+import { useNavigation } from '@react-navigation/native';
 
-interface AddApiaryFormProps {
-  navigation: NewApiaryScreenNavigationProp;
-}
+interface AddApiaryFormProps {}
 
 type FormData = {
   name: string;
 };
 
-export const AddApiaryForm: React.FC<AddApiaryFormProps> = ({ navigation }) => {
+export const AddApiaryForm: React.FC<AddApiaryFormProps> = () => {
   const { register, setValue, handleSubmit, errors } = useForm<FormData>();
+  const navigation = useNavigation<NewApiaryScreenNavigationProp>();
   const dispatch = useDispatch();
 
   useEffect(() => {

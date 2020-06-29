@@ -1,7 +1,9 @@
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-import { RouteProp } from '@react-navigation/native';
-import { CompositeNavigationProp } from '@react-navigation/native';
+import {
+  BottomTabNavigationProp,
+  BottomTabScreenProps,
+} from '@react-navigation/bottom-tabs';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 //ParamsList
@@ -25,61 +27,39 @@ export type BottomTabParamsList = {
 };
 
 // WelcomeScreen
-type WelcomeScreenRouteProp = RouteProp<BottomTabParamsList, 'WelcomeScreen'>;
-type WelcomeScreenNavigationProp = BottomTabNavigationProp<
+export type WelcomeScreenProps = BottomTabScreenProps<
   BottomTabParamsList,
   'WelcomeScreen'
 >;
 
-export type WelcomeScreenProps = {
-  navigation: WelcomeScreenNavigationProp;
-  route: WelcomeScreenRouteProp;
-};
-
 //CalendarScreen
-type CalendarScreenRouteProp = RouteProp<BottomTabParamsList, 'CalendarScreen'>;
-type CalendarScreenNavigationProp = BottomTabNavigationProp<
+export type CalendarScreenProps = BottomTabScreenProps<
   BottomTabParamsList,
   'CalendarScreen'
 >;
 
-export type CalendarScreenProps = {
-  navigation: CalendarScreenNavigationProp;
-  route: CalendarScreenRouteProp;
-};
-
 //ApiariesStack
-type ApiariesStackRouteProp = RouteProp<
-  ApiariesDrawerParamsList,
-  'ApiariesStack'
->;
 export type ApiariesStackNavigationProp = DrawerNavigationProp<
   ApiariesDrawerParamsList,
   'ApiariesStack'
 >;
-
-export type ApiariesStackProps = {
-  navigation: ApiariesStackNavigationProp;
-  route: ApiariesStackRouteProp;
-};
+export type ApiariesStackProps = NavigationRouteProps<
+  ApiariesStackNavigationProp,
+  RouteProp<ApiariesDrawerParamsList, 'ApiariesStack'>
+>;
 
 //NewApiaryStack
-type NewApiaryStackRouteProp = RouteProp<
-  ApiariesDrawerParamsList,
-  'NewApiaryStack'
->;
 export type NewApiaryStackNavigationProp = DrawerNavigationProp<
   ApiariesDrawerParamsList,
   'NewApiaryStack'
 >;
 
-export type NewApiaryStackProps = {
-  navigation: NewApiaryStackNavigationProp;
-  route: NewApiaryStackRouteProp;
-};
+export type NewApiaryStackProps = NavigationRouteProps<
+  NewApiaryStackNavigationProp,
+  RouteProp<ApiariesDrawerParamsList, 'NewApiaryStack'>
+>;
 
 //ApiariesScreen
-type ApiariesScreenRouteProp = RouteProp<ApiariesStackParamsList, 'Apiaries'>;
 type ApiariesScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<ApiariesStackParamsList, 'Apiaries'>,
   CompositeNavigationProp<
@@ -88,16 +68,12 @@ type ApiariesScreenNavigationProp = CompositeNavigationProp<
   >
 >;
 
-export type ApiariesScreenProps = {
-  navigation: ApiariesScreenNavigationProp;
-  route: ApiariesScreenRouteProp;
-};
+export type ApiariesScreenProps = NavigationRouteProps<
+  ApiariesScreenNavigationProp,
+  RouteProp<ApiariesStackParamsList, 'Apiaries'>
+>;
 
 //NewApiaryScreen
-type NewApiaryScreenRouteProp = RouteProp<
-  NewApiaryStackParamsList,
-  'NewApiary'
->;
 export type NewApiaryScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<NewApiaryStackParamsList, 'NewApiary'>,
   CompositeNavigationProp<
@@ -106,7 +82,13 @@ export type NewApiaryScreenNavigationProp = CompositeNavigationProp<
   >
 >;
 
-export type NewApiaryScreenProps = {
-  navigation: NewApiaryScreenNavigationProp;
-  route: NewApiaryScreenRouteProp;
+export type NewApiaryScreenProps = NavigationRouteProps<
+  NewApiaryScreenNavigationProp,
+  RouteProp<NewApiaryStackParamsList, 'NewApiary'>
+>;
+
+// generic
+export type NavigationRouteProps<T, S> = {
+  navigation: T;
+  route: S;
 };
