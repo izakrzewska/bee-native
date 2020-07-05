@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import { StatusBar } from '../StatusBar/StatusBar';
 
-export const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <SafeAreaView style={styles.layout}>
       <StatusBar />
@@ -14,6 +18,7 @@ export const Layout = ({ children }) => {
 const styles = StyleSheet.create({
   layout: {
     flex: 1,
-    marginTop: 20,
+    marginVertical: 20,
+    marginHorizontal: 20,
   },
 });

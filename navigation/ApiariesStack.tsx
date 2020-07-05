@@ -20,15 +20,9 @@ export const ApiariesStack: React.FC<ApiariesStackProps> = () => {
       <Stack.Screen
         name='Apiary'
         component={ApiaryScreen}
-        options={({ route }) => {
-          console.log(route);
-          return {
-            title: route.params.name,
-          };
-        }}
-        // options={{
-        //   title: 'Pasieka',
-        // }}
+        options={({ route }) => ({
+          title: route.params.name,
+        })}
       />
     </Stack.Navigator>
   );

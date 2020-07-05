@@ -5,7 +5,7 @@ import { TouchableHighlight } from 'react-native-gesture-handler';
 import { useDispatch } from 'react-redux';
 import { NewApiaryScreenNavigationProp } from '../../navigation/types';
 import { addApiary } from '../../store/actions/apiaries';
-import { Text } from '../Text/Text';
+import { Text, TextField } from '..';
 import { useNavigation } from '@react-navigation/native';
 
 interface AddApiaryFormProps {}
@@ -15,7 +15,7 @@ type FormData = {
 };
 
 export const AddApiaryForm: React.FC<AddApiaryFormProps> = () => {
-  const { register, setValue, handleSubmit, errors } = useForm<FormData>();
+  const { register, handleSubmit, errors, setValue } = useForm<FormData>();
   const navigation = useNavigation<NewApiaryScreenNavigationProp>();
   const dispatch = useDispatch();
 
@@ -58,11 +58,18 @@ export const AddApiaryForm: React.FC<AddApiaryFormProps> = () => {
     navigation.jumpTo('ApiariesStack');
   };
 
+  const setTextValue = (name: string, text: string, boolean: boolean) => {
+    setValue(name, text, boolean);
+  };
+
   return (
     <View>
-      <Text>Nazwa pasieki</Text>
-      <TextInput onChangeText={(text) => setValue('name', text, true)} />
-      {errors.name && <Text>This is required.</Text>}
+      <TextField
+        label='Nazwa pasieki'
+        name='name'
+        error={errors.name}
+        setTextValue={setTextValue}
+      />
       <TouchableHighlight
         onPress={handleSubmit(({ name }) => onApiaryAdded(name))}
       >
