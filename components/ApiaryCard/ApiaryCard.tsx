@@ -4,13 +4,24 @@ import { colors } from '../../constants/colors';
 import { Text } from '../Text/Text';
 import { Apiary } from '../../store/types';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ApiaryScreenNavigationProp } from '../../navigation/types';
+import { useNavigation } from '@react-navigation/native';
+
 interface ApiaryCardProps {
   apiary: Apiary;
 }
 
 export const ApiaryCard: React.FC<ApiaryCardProps> = ({ apiary }) => {
+  const navigation = useNavigation<ApiaryScreenNavigationProp>();
+  const onApiaryClick = (id: number, name: string) => {
+    navigation.push('Apiary', { id, name });
+  };
+
   return (
-    <TouchableOpacity activeOpacity={0.5}>
+    <TouchableOpacity
+      activeOpacity={0.5}
+      onPress={() => onApiaryClick(apiary.id, apiary.name)}
+    >
       <View style={styles.card}>
         <Text fontFamily='bold' fontSize={20}>
           {apiary.name}, {apiary.beehives.length}

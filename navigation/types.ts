@@ -13,6 +13,7 @@ export type NewApiaryStackParamsList = {
 
 export type ApiariesStackParamsList = {
   Apiaries: undefined;
+  Apiary: { id: number; name: string };
 };
 
 export type ApiariesDrawerParamsList = {
@@ -71,6 +72,20 @@ type ApiariesScreenNavigationProp = CompositeNavigationProp<
 export type ApiariesScreenProps = NavigationRouteProps<
   ApiariesScreenNavigationProp,
   RouteProp<ApiariesStackParamsList, 'Apiaries'>
+>;
+
+// ApiaryScreen
+export type ApiaryScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<ApiariesStackParamsList, 'Apiary'>,
+  CompositeNavigationProp<
+    DrawerNavigationProp<ApiariesDrawerParamsList>,
+    BottomTabNavigationProp<BottomTabParamsList>
+  >
+>;
+
+export type ApiaryScreenProps = NavigationRouteProps<
+  ApiariesScreenNavigationProp,
+  RouteProp<ApiariesStackParamsList, 'Apiary'>
 >;
 
 //NewApiaryScreen
