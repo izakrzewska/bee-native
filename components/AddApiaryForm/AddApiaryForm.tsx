@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { TextInput, View } from 'react-native';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import { View, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { NewApiaryScreenNavigationProp } from '../../navigation/types';
 import { addApiary } from '../../store/actions/apiaries';
-import { Text, TextField } from '..';
+import { TextField } from '../TextField/TextField';
 import { useNavigation } from '@react-navigation/native';
+import { Button } from '../Button/Button';
 
 interface AddApiaryFormProps {}
 
@@ -62,19 +62,38 @@ export const AddApiaryForm: React.FC<AddApiaryFormProps> = () => {
     setValue(name, text, boolean);
   };
 
+  const onPress = () => {
+    handleSubmit(({ name }) => onApiaryAdded(name));
+  };
+
   return (
-    <View>
+    <View style={styles.form}>
       <TextField
         label='Nazwa pasieki'
         name='name'
         error={errors.name}
         setTextValue={setTextValue}
       />
-      <TouchableHighlight
-        onPress={handleSubmit(({ name }) => onApiaryAdded(name))}
-      >
-        <Text>Dodaj pasiekę</Text>
-      </TouchableHighlight>
+      <View style={styles.buttonContainer}>
+        <Button
+          type='add'
+          onPress={handleSubmit(({ name }) => onApiaryAdded(name))}
+        />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  form: {
+    flex: 1,
+    marginHorizontal: 20,
+    marginTop: 20,
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    marginEnd: 20,
+    marginTop: 20,
+    alignItems: 'flex-end',
+  },
+});
